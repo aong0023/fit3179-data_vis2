@@ -1,0 +1,55 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 600,
+  "height": 500,
+  "data": {
+    "url": "Australia Shark Incidents (clean).csv"
+  },
+  "transform": [
+    {
+      "calculate": "toString(floor(toNumber(datum['Incident.year'])))",
+      "as": "YearNum"
+    },
+    {
+      "calculate": "trim(datum['State'])",
+      "as": "StateClean"
+    },
+    {
+      "aggregate": [
+        { "op": "count", "as": "Incidents" }
+      ],
+      "groupby": ["YearNum", "StateClean"]
+    }
+  ],
+  "selection": {
+    "highlight": {
+      "type": "single",
+      "fields": ["StateClean"],
+      "bind": "legend"
+    }
+  },
+  "mark": "area",
+  "encoding": {
+    "x": { "field": "YearNum", "type": "ordinal", "title": "Year" },
+    "y": { "field": "Incidents", "type": "quantitative", "title": "Number of Incidents", "stack": "zero" },
+    "color": {
+      "field": "StateClean",
+      "type": "nominal",
+      "title": "State",
+      "legend": {
+        "titleFontSize": 16,
+        "labelFontSize": 14,
+        "symbolSize": 150
+      }
+    },
+    "opacity": {
+      "condition": { "selection": "highlight", "value": 1 },
+      "value": 0.2
+    },
+    "tooltip": [
+      { "field": "YearNum", "type": "ordinal", "title": "Year" },
+      { "field": "StateClean", "type": "nominal", "title": "State" },
+      { "field": "Incidents", "type": "quantitative", "title": "Number of Incidents" }
+    ]
+  }
+}
