@@ -1,9 +1,9 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width":500,
-  "height":500,
+  "width":300,
+  "height":300,
   "data": {
-    "url": "Australia_slopes_by_beach.csv"
+    "url": "https://raw.githubusercontent.com/aong0023/fit3179-data_vis2/refs/heads/main/Australia_slopes_by_beach.csv"
   },
   "mark": "bar",
   "encoding": {

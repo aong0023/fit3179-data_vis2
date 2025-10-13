@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 600,
-  "height": 500,
+  "width": 400,
+  "height": 300,
   "data": {
     "url": "https://raw.githubusercontent.com/aong0023/fit3179-data_vis2/refs/heads/main/Australia%20Shark%20Incidents%20(clean).csv"
   },
