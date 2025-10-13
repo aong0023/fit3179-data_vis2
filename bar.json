@@ -1,0 +1,36 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width":500,
+  "height":500,
+  "data": {
+    "url": "Australia_slopes_by_beach.csv"
+  },
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "field": "coastal_region",
+      "type": "nominal",
+      "title": "Coastal Region",
+      "sort": "-y",
+      "axis": {
+        "labelAngle": 45,
+        "labelFontSize": 12
+      }
+    },
+    "y": {
+      "aggregate": "mean",
+      "field": "beach_slope_average",
+      "type": "quantitative",
+      "title": "Average Beach Slope"
+    },
+    "color": {
+      "field": "coastal_region",
+      "type": "nominal",
+      "legend": null
+    },
+    "tooltip": [
+      {"field": "coastal_region", "type": "nominal", "title": "Region"},
+      {"aggregate": "mean", "field": "beach_slope_average", "type": "quantitative", "title": "Avg. Slope"}
+    ]
+  }
+}

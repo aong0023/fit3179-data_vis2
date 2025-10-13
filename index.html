@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shark Incidents</title>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+</head>
+<body>
+  <h1>Shark Incidents in Australia Beaches</h1>
+
+  <h2>Total Shark Incidents In Australia</h2>
+  <div id="map"></div>
+
+  <h2>Beach Slopes per Coastal Region in Australia</h2>
+  <div id="bar"></div>
+
+  <h2>Shark Incidents by State</h2>
+  <div id="area"></div>
+
+  <script>
+    vegaEmbed("#map", "map.json").then(function(result) {
+      console.log("Map embedded successfully!");
+    }).catch(console.error);
+
+    vegaEmbed("#bar", "bar.json").then(function(result) {
+      console.log("Map embedded successfully!");
+    }).catch(console.error);
+
+    vegaEmbed("#area", "area.json").then(function(result) {
+      console.log("Area chart embedded successfully!");
+    }).catch(console.error);
+  </script>
+</body>
+</html>
