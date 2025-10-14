@@ -1,10 +1,32 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width":600,
-  "height":400,
+  "width": 600,
+  "height": 400,
   "data": {
     "url": "https://raw.githubusercontent.com/aong0023/fit3179-data_vis2/refs/heads/main/Australia_slopes_by_beach.csv"
   },
+  "params": [
+    {
+      "name": "state_param",
+      "value": null,
+      "bind": {
+        "input": "select",
+        "name": "State ",
+        "options": [null, "WA", "NT", "QLD", "NSW", "VIC", "TAS", "SA"],
+        "labels": ["All States", "WA", "NT", "QLD", "NSW", "VIC", "TAS", "SA"]
+      }
+    }
+  ],
+  "transform": [
+    {
+  "calculate": "datum.coastal_region === 'Central West WA' || datum.coastal_region === 'Kimberley' || datum.coastal_region === 'Southwest WA' || datum.coastal_region === 'North WA' ? 'WA' :\ndatum.coastal_region === 'Northern NT' || datum.coastal_region === 'Western NT' ? 'NT' :\ndatum.coastal_region === 'Southern Queensland' || datum.coastal_region === 'Gippsland' || datum.coastal_region === 'Nullarbor' ? 'QLD' :\ndatum.coastal_region === 'Central NSW' ? 'NSW' :\ndatum.coastal_region === 'Central and Western VIC' ? 'VIC' :\ndatum.coastal_region === 'East Tasmania' || datum.coastal_region === 'West Tasmania' || datum.coastal_region === 'Central East' ? 'TAS' :\ndatum.coastal_region === 'East Arnhem Land' || datum.coastal_region === 'North Arnhem Land' || datum.coastal_region === 'South Australian Gulfs' || datum.coastal_region === 'Southern Eyre Peninsula' || datum.coastal_region === 'Southern Gulf of Carpentaria' || datum.coastal_region === 'Pilbara' || datum.coastal_region === 'Southland' ? 'SA' : 'Other'",
+  "as": "state"
+}
+,
+    {
+      "filter": "state_param === null || datum.state === state_param"
+    }
+  ],
   "mark": "bar",
   "encoding": {
     "x": {
@@ -12,10 +34,7 @@
       "type": "nominal",
       "title": "Coastal Region",
       "sort": "-y",
-      "axis": {
-        "labelAngle": 45,
-        "labelFontSize": 12
-      }
+      "axis": {"labelAngle": 45, "labelFontSize": 12}
     },
     "y": {
       "aggregate": "mean",
@@ -23,14 +42,11 @@
       "type": "quantitative",
       "title": "Average Beach Slope"
     },
-    "color": {
-      "field": "coastal_region",
-      "type": "nominal",
-      "legend": null
-    },
+    "color": {"field": "coastal_region", "type": "nominal", "legend": null},
     "tooltip": [
       {"field": "coastal_region", "type": "nominal", "title": "Region"},
-      {"aggregate": "mean", "field": "beach_slope_average", "type": "quantitative", "title": "Avg. Slope"}
+      {"aggregate": "mean", "field": "beach_slope_average", "type": "quantitative", "title": "Avg. Slope"},
+      {"field": "state", "type": "nominal", "title": "State"}
     ]
   }
 }
