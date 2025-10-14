@@ -7,30 +7,145 @@
   <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', 'Helvetica', sans-serif;
+      background-color: #ffffc5;
+    }
+
+    .banner {
+      background-color: #0077b6; 
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+      border-radius: 25px;
+    }
+
+    h1 {
+      margin: 0 0 10px 0;
+      font-size: 36px;
+    }
+
+    .info-boxes {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 10px 0 20px 0; 
+      gap: 15px;
+    }
+
+    .info-box {
+    background-color: #d3d3d3; 
+    padding: 20px;
+    border-radius: 15px;
+    width: 150px;
+    height: 80px;
+    text-align: left;     
+    display: flex;         
+    align-items: center;   
+    justify-content: center; 
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    font-weight: normal;  
+    color: black;         
+    white-space: normal;   
+}
+
+    .banner p {
+      margin: 0;
+      font-size: 18px;
+      border-radius: 25px;
+
+    }
+
+    .section-banner {
+        background-color: #8fd9fb; 
+        padding: 15px 10px;
+        text-align: center;
+        margin: 20px auto; 
+        border-radius: 25px; 
+        width: 90%; 
+}
+
+
+    h2, h3 {
+      font-family: 'Arial', 'Helvetica', sans-serif;
+      text-align: center; 
+      margin: 0; 
+    }
+
+    h2 {
+      font-size: 28px; 
+    }
+
+    h3 {
+      font-size: 22px;
+      margin-top: 10px;
+    }
+
+    p.description {
+      font-family: 'Arial', 'Helvetica', sans-serif;
+      font-size: 14px;
+      color: #333;
+      max-width: 700px;
+      margin: 10px auto 20px auto;
+      text-align: center;
+    }
+
+    div {
+      margin-bottom: 30px;
+    }
+  </style>
 </head>
 <body>
-  <h1>Shark Incidents in Australia Beaches</h1>
 
-  <h2>Total Shark Incidents In Australia</h2>
-  <div id="map"></div>
+  <div class="banner">
+    <h1>🦈 Shark Incidents in Australian Beaches 🦈</h1>
+    <p>Explore the patterns of shark incidents, beach slopes, and state-wise trends to better understand risks along Australia's coastline.</p>
+  </div>
 
-  <h2>Beach Slopes per Coastal Region in Australia</h2>
-  <div id="bar"></div>
+  <div class="info-boxes">
+  <div class="info-box">🦈 Most serious bites come from White, Bull & Tiger Sharks</div>
+  <div class="info-box">🌊 Avg. 20 shark incidents each year with injuries</div>
+  <div class="info-box">⚠️ About 3 fatalities per year, rare but possible!</div>
+  <div class="info-box">🏖️ Beach slopes vary: NT 0.08°, VIC 0.055°</div>
+  <div class="info-box">📐 Gentle slopes mean calm waters, steep slopes create stronger waves</div>
+</div>
 
-  <h2>Shark Incidents by State</h2>
-  <div id="area"></div>
+
+  <div class="section-banner">
+    <h2>Shark Incidents</h2>
+  </div>
+
+  <h3>Total Shark Incidents In Australia</h3>
+  <p class="description">This map shows the total number of shark incidents recorded along Australian beaches. It highlights regions with higher incidents for better awareness and safety planning.</p>
+  <div id="map" style="height: 400px;"></div>
+
+  <h3>Shark Incidents by State</h3>
+  <p class="description">This area chart represents the number of shark incidents by state over time, helping to identify trends and patterns across Australia's coastline.
+    Click on each state on the legend to analyse each state's data.
+  </p>
+  <div id="area" style="height: 400px;"></div>
+
+  <div class="section-banner">
+    <h2>Beaches in Australia</h2>
+  </div>
+
+  <h3>Beach Slopes per Coastal Region in Australia</h3>
+  <p class="description">This bar chart illustrates the slopes of beaches in different coastal regions. Steeper beaches may influence the frequency or nature of shark encounters.</p>
+  <div id="bar" style="height: 400px;"></div>
 
   <script>
     vegaEmbed("#map", "map.json").then(function(result) {
       console.log("Map embedded successfully!");
     }).catch(console.error);
 
-    vegaEmbed("#bar", "bar.json").then(function(result) {
-      console.log("Map embedded successfully!");
-    }).catch(console.error);
-
     vegaEmbed("#area", "area.json").then(function(result) {
       console.log("Area chart embedded successfully!");
+    }).catch(console.error);
+
+    vegaEmbed("#bar", "bar.json").then(function(result) {
+      console.log("Bar chart embedded successfully!");
     }).catch(console.error);
   </script>
 </body>
