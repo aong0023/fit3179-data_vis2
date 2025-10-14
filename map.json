@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 500,
-  "height": 350,
+  "width": 700,
+  "height": 550,
   "projection": {
     "type": "mercator",
     "scale": 790,
@@ -51,7 +51,7 @@
             "latitude": {"field": "Latitude", "type": "quantitative"},
             "tooltip": [
               {"field": "UIN", "type": "ordinal", "title": "Incident ID"},
-              {"field": "IncidentYearNum", "type": "quantitative", "title": "Year"},
+              {"field": "Incident.year", "type": "quantitative", "title": "Year"},
               {"field": "Shark.common.name", "type": "nominal", "title": "Shark"}
             ],
             "color": {
