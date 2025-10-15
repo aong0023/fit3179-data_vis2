@@ -130,7 +130,7 @@
   <h3>Shark Incidents by State</h3>
   <p class="description">This area chart represents the number of shark incidents by state over time, helping to identify trends and patterns across Australia's coastline.</p>
   <p class="instructions">Tip: Click on each state on the legend to analyse each state's data.</p>
-  <div id="area" style="height: 400px;"></div>
+  <div id="line" style="height: 400px;"></div>
 
   <div class="section-banner">
     <h2>Beaches in Australia</h2>
@@ -146,7 +146,7 @@
       console.log("Map embedded successfully!");
     }).catch(console.error);
 
-    vegaEmbed("#area", "area.json").then(function(result) {
+    vegaEmbed("#line", "line.json").then(function(result) {
       console.log("Area chart embedded successfully!");
     }).catch(console.error);
 
