@@ -9,6 +9,17 @@
     "scale": 790,
     "center": [132, -28]
   },
+  "params": [
+    {
+      "name": "YearSelection",
+      "value": "All",
+      "bind": {
+        "input": "select",
+        "options": ["All",2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025],
+        "name": "Select Year: "
+      }
+    }
+  ],
   "layer": [
     {
       "data": {
@@ -42,16 +53,11 @@
       "data": {
         "url": "https://raw.githubusercontent.com/aong0023/fit3179-data_vis2/refs/heads/main/Australia%20Shark%20Incidents%20(clean).csv"
       },
-      "mark": { "type": "circle", "size": 120, "opacity": 0.8 },
+      "mark": { "type": "circle", "size": 200, "opacity": 1 },
       "transform": [
-        {
-          "calculate": "toNumber(datum['Incident.year'])",
-          "as": "IncidentYearNum"
-        },
-        {
-          "calculate": "trim(datum['Shark.common.name'])",
-          "as": "SharkName"
-        }
+        { "calculate": "toNumber(datum['Incident.year'])", "as": "IncidentYearNum" },
+        { "calculate": "trim(datum['Shark.common.name'])", "as": "SharkName" },
+        { "filter": "YearSelection == 'All' || datum.IncidentYearNum == YearSelection" }
       ],
       "encoding": {
         "longitude": { "field": "Longitude", "type": "quantitative" },
@@ -64,6 +70,18 @@
         "color": {
           "field": "SharkName",
           "type": "nominal",
+          "scale": {
+            "range": [
+              "#0072B2",  
+              "#E69F00",  
+              "#56B4E9",  
+              "#CC79A7",  
+              "#F0E442",  
+              "#A65628", 
+              "#999999",  
+              "#yellow" 
+            ]
+          },
           "legend": null
         }
       }
