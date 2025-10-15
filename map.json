@@ -2,6 +2,8 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 700,
   "height": 550,
+  "background": "#bbdbf7",
+  "padding": 1,
   "projection": {
     "type": "mercator",
     "scale": 790,
@@ -38,33 +40,33 @@
     },
     {
       "data": {
-        "url": "https://raw.githubusercontent.com/aong0023/fit3179-data_vis2/refs/heads/main/Australia%20Shark%20Incidents%20(clean).csv"    },
-    "mark": {"type": "circle", "size": 120, "opacity": 0.8},
-    "transform": [
-  {
-    "calculate": "toNumber(datum['Incident.year'])",
-    "as": "IncidentYearNum"
-  }
-],
-    "encoding": {
-            "longitude": {"field": "Longitude", "type": "quantitative"},
-            "latitude": {"field": "Latitude", "type": "quantitative"},
-            "tooltip": [
-              {"field": "UIN", "type": "ordinal", "title": "Incident ID"},
-              {"field": "Incident.year", "type": "quantitative", "title": "Year"},
-              {"field": "Shark.common.name", "type": "nominal", "title": "Shark"}
-            ],
-            "color": {
-              "field": "Shark.common.name",
-              "type": "nominal",
-              "legend": {
-                "title": "Shark Name",
-                "titleFontSize": 16,
-                "labelFontSize": 14,
-                "symbolSize": 200
-              }
-            }
-          }
-  }
+        "url": "https://raw.githubusercontent.com/aong0023/fit3179-data_vis2/refs/heads/main/Australia%20Shark%20Incidents%20(clean).csv"
+      },
+      "mark": { "type": "circle", "size": 120, "opacity": 0.8 },
+      "transform": [
+        {
+          "calculate": "toNumber(datum['Incident.year'])",
+          "as": "IncidentYearNum"
+        },
+        {
+          "calculate": "trim(datum['Shark.common.name'])",
+          "as": "SharkName"
+        }
+      ],
+      "encoding": {
+        "longitude": { "field": "Longitude", "type": "quantitative" },
+        "latitude": { "field": "Latitude", "type": "quantitative" },
+        "tooltip": [
+          { "field": "UIN", "type": "ordinal", "title": "Incident ID" },
+          { "field": "IncidentYearNum", "type": "quantitative", "title": "Year" },
+          { "field": "SharkName", "type": "nominal", "title": "Shark" }
+        ],
+        "color": {
+          "field": "SharkName",
+          "type": "nominal",
+          "legend": null
+        }
+      }
+    }
   ]
 }
