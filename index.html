@@ -100,6 +100,59 @@
     div {
       margin-bottom: 30px;
     }
+    .container-section {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 25px;
+  margin: 20px auto;
+  width: 90%;
+  flex-wrap: wrap; 
+}
+
+.container-comments {
+  flex: 1;
+  background-color: #f0f8ff;
+  border-left: 4px solid #006494;
+  border-radius: 12px;
+  padding: 18px 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  font-size: 14px;
+  color: #222;
+  line-height: 1.6;
+  max-width: 400px;
+  min-width: 280px;
+  height: fit-content;
+}
+
+.container-comments h4 {
+  margin-top: 0;
+  font-size: 18px;
+  color: #006494;
+  border-bottom: 2px solid #006494;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+.container-comments ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.container-comments li {
+  margin-bottom: 10px;
+  padding-left: 5px;
+}
+
+.container-comments li::before {
+  content: "• ";
+  color: #006494;
+  font-weight: bold;
+}
+
+
+
   </style>
 </head>
 <body>
@@ -123,9 +176,28 @@
   </div>
 
   <h3>Total Shark Incidents In Australia</h3>
-  <p class="description">This map shows the total number of shark incidents recorded along Australian beaches. It highlights regions with higher incidents for better awareness and safety planning.</p>
-  <p class="instructions">Tip: Select a year at the bottom on the selection menu to analyse each years data.</p>
-  <div id="map" style="height: 400px;"></div>
+<p class="description">
+  This map shows the total number of shark incidents recorded along Australian beaches. It highlights regions with higher incidents for better awareness and safety planning.
+</p>
+<p class="instructions">
+  Tip: Select a year at the bottom on the selection menu to analyse each year's data.
+</p>
+
+<div class="container-section">
+  <div id="map"></div>
+
+  <div class="container-comments">
+    <h4>Insights & Observations</h4>
+    <ul>
+      <li>🦈 <strong>High incident clusters</strong> coincide with popular swimming and surfing beaches, especially along NSW and southern QLD.</li>
+      <li>🌊 <strong>Western and eastern coasts</strong> dominate the dataset, showing similar seasonal peaks in incident rates.</li>
+      <li>👥 <strong>Human activity levels</strong> — not shark abundance — are the strongest predictor of incident frequency.</li>
+      <li>📊 <strong>Data suggests</strong> that densely populated coasts, such as Sydney and Perth regions, experience more encounters.</li>
+      <li>🏖️ <strong>Fewer incidents</strong> in Northern Territory and South Australia reflect lower recreational beach use.</li>
+      <li>⚠️ <strong>Useful for safety planning</strong>: Helps policymakers, lifeguards, and local councils identify high-risk zones.</li>
+    </ul>
+  </div>
+</div>
 
   <h3>Shark Incidents by State</h3>
   <p class="description">This area chart represents the number of shark incidents by state over time, helping to identify trends and patterns across Australia's coastline.</p>
