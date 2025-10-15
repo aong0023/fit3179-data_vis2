@@ -1,55 +1,118 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 600,
-  "height": 500,
+  "height": 400,
+  "background": "#fff8dc",
   "data": {
-    "url": "Australia Shark Incidents (clean).csv"
+    "url": "https://raw.githubusercontent.com/aong0023/fit3179-data_vis2/refs/heads/main/Australia%20Shark%20Incidents%20(clean).csv"
   },
   "transform": [
+    { "calculate": "toString(floor(toNumber(datum['Incident.year'])))", "as": "YearNum" },
+    { "calculate": "trim(datum['State'])", "as": "State" },
     {
-      "calculate": "toString(floor(toNumber(datum['Incident.year'])))",
-      "as": "YearNum"
+      "aggregate": [{ "op": "count", "as": "Incidents" }],
+      "groupby": ["YearNum", "State"]
     },
     {
-      "calculate": "trim(datum['State'])",
-      "as": "StateClean"
-    },
-    {
-      "aggregate": [
-        { "op": "count", "as": "Incidents" }
-      ],
-      "groupby": ["YearNum", "StateClean"]
+      "impute": "Incidents",
+      "key": "YearNum",
+      "groupby": ["State"],
+      "value": 0
     }
   ],
-  "selection": {
-    "highlight": {
-      "type": "single",
-      "fields": ["StateClean"],
-      "bind": "legend"
-    }
-  },
-  "mark": "area",
-  "encoding": {
-    "x": { "field": "YearNum", "type": "ordinal", "title": "Year" },
-    "y": { "field": "Incidents", "type": "quantitative", "title": "Number of Incidents", "stack": "zero" },
-    "color": {
-      "field": "StateClean",
-      "type": "nominal",
-      "title": "State",
-      "legend": {
-        "titleFontSize": 16,
-        "labelFontSize": 14,
-        "symbolSize": 150
+  "layer": [
+    {
+      "mark": { "type": "line" },
+      "params": [
+        {
+          "name": "highlight",
+          "select": { "type": "point", "fields": ["State"] },
+          "bind": "legend"
+        }
+      ],
+      "encoding": {
+        "x": {
+          "field": "YearNum",
+          "type": "ordinal",
+          "title": "Year",
+          "axis": { "labelAngle": 45, "labelFontSize": 12 }
+        },
+        "y": {
+          "field": "Incidents",
+          "type": "quantitative",
+          "title": "Number of Incidents"
+        },
+        "color": {
+          "field": "State",
+          "type": "nominal",
+          "title": "State",
+          "scale": {
+            "range": [
+              "#999999",
+              "#56B4E9",
+              "#009E73",
+              "#F0E442",
+              "#0072B2",
+              "#D55E00",
+              "#CC79A7"
+            ]
+          },
+          "legend": {
+            "titleFontSize": 16,
+            "labelFontSize": 14,
+            "symbolSize": 150
+          }
+        },
+        "opacity": {
+          "condition": { "param": "highlight", "value": 1 },
+          "value": 0.3
+        },
+        "tooltip": [
+          { "field": "YearNum", "type": "ordinal", "title": "Year" },
+          { "field": "State", "type": "nominal", "title": "State" },
+          { "field": "Incidents", "type": "quantitative", "title": "Number of Incidents" }
+        ]
       }
     },
-    "opacity": {
-      "condition": { "selection": "highlight", "value": 1 },
-      "value": 0.2
+    {
+      "mark": {
+        "type": "text",
+        "color": "#999999",
+        "fontSize": 12,
+        "fontStyle": "italic",
+        "align": "left"
+      },
+      "encoding": {
+        "x": { "datum": "2020" },
+        "y": { "datum": 20 },
+        "text": {
+          "value": [
+            "NSW consistently records the highest",
+            "number of shark incidents, linked to",
+            "dense coastal population and tourism."
+          ]
+        }
+      }
     },
-    "tooltip": [
-      { "field": "YearNum", "type": "ordinal", "title": "Year" },
-      { "field": "StateClean", "type": "nominal", "title": "State" },
-      { "field": "Incidents", "type": "quantitative", "title": "Number of Incidents" }
-    ]
-  }
+    {
+      "mark": {
+        "type": "text",
+        "color": "#56B4E9",
+        "fontSize": 12,
+        "fontStyle": "italic",
+        "align": "left"
+      },
+      "encoding": {
+        "x": { "datum": "2017" },
+        "y": { "datum": 4 },
+        "text": {
+          "value": [
+            "NT reports the fewest incidents,",
+            "reflecting smaller population density",
+            "and limited beach activity."
+          ]
+        }
+      }
+    }
+  ]
 }
