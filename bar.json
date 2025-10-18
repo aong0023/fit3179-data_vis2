@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 750,
-  "height": 600,
+  "width": 550,
+  "height": 500,
   "data": {
     "url": "https://raw.githubusercontent.com/aong0023/fit3179-data_vis2/refs/heads/main/Australia_slopes_by_beach.csv"
   },
@@ -62,14 +62,15 @@
       "legend": null
     },
     "tooltip": [
-      {"field": "coastal_region", "type": "nominal", "title": "Region"},
-      {
-        "aggregate": "mean",
-        "field": "beach_slope_average",
-        "type": "quantitative",
-        "title": "Avg. Slope (°)"
-      },
-      {"field": "state", "type": "nominal", "title": "State"}
+  {"field": "coastal_region", "type": "nominal", "title": "Region"},
+  {
+    "aggregate": "mean",
+    "field": "beach_slope_average",
+    "type": "quantitative",
+    "title": "Avg. Slope (°)",
+    "format": ".3f"
+  },
+  {"field": "state", "type": "nominal", "title": "State"}
     ]
   },
   "config": {

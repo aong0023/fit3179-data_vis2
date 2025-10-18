@@ -56,11 +56,13 @@
     }
 
     .banner p {
-      margin: 0;
-      font-size: 18px;
-      border-radius: 25px;
-
-    }
+  margin: 0 auto;
+  font-size: 20px; 
+  border-radius: 25px;
+  max-width: 700px; 
+  line-height: 1.6; 
+  text-align: center;
+}
 
     .section-banner {
         background-color: #bbdbf7; 
@@ -78,29 +80,37 @@
     }
 
     h2 {
-      font-size: 28px; 
-    }
+  font-size: 34px; 
+  font-weight: 700;
+  color: black;
+}
 
     h3 {
-      font-size: 22px;
-      margin-top: 10px;
-    }
+  font-size: 26px; 
+  margin-top: 12px;
+  font-weight: 600;
+  color: black;
+}
 
     p.description {
-      font-family: 'Arial', 'Helvetica', sans-serif;
-      font-size: 14px;
-      color: #333;
-      max-width: 700px;
-      margin: 10px auto 20px auto;
-      text-align: center;
-    }
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  font-size: 18px; 
+  color: #333;
+  max-width: 800px; 
+  margin: 18px auto 28px auto;
+  text-align: center;
+  line-height: 1.9;
+  word-wrap: break-word;
+}
 
-    p.instructions {
-        font-family: 'Arial', 'Helvetica', sans-serif;
-        font-size: 14px;
-        color: blue;
-        text-align: center;
-    }
+   p.instructions {
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  font-size: 16px; 
+  color: #0047ab; 
+  text-align: center;
+  font-weight: 500;
+  line-height: 1.5;
+}
     div {
       margin-bottom: 30px;
     }
@@ -117,26 +127,28 @@
 .container-comments {
   flex: 1;
   background-color: #f0f8ff;
-  border-left: 4px solid #006494;
+  border-left: 5px solid #006494;
   border-radius: 12px;
-  padding: 18px 20px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  font-size: 14px;
+  padding: 20px 20px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+  font-size: 18px; 
   color: #222;
-  line-height: 1.6;
-  max-width: 400px;
-  min-width: 280px;
+  line-height: 1.8;
+  max-width: 480px;
+  min-width: 300px;
   height: fit-content;
 }
 
 .container-comments h4 {
   margin-top: 0;
-  font-size: 18px;
+  font-size: 22px; 
   color: #006494;
   border-bottom: 2px solid #006494;
-  padding-bottom: 5px;
-  margin-bottom: 10px;
+  padding-bottom: 8px;
+  margin-bottom: 12px;
+  font-weight: 700;
 }
+
 
 .container-comments ul {
   list-style: none;
@@ -145,7 +157,7 @@
 }
 
 .container-comments li {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   padding-left: 5px;
 }
 
@@ -154,8 +166,6 @@
   color: #006494;
   font-weight: bold;
 }
-
-
 
   </style>
 </head>
@@ -181,7 +191,9 @@
 
   <h3>Total Shark Incidents In Australia</h3>
 <p class="description">
-  This map shows the total number of shark incidents recorded along Australian beaches. It highlights regions with higher incidents for better awareness and safety planning.
+  This map shows the total number of shark incidents recorded <br>
+  along Australian beaches. It highlights regions with higher incidents <br>
+  for better awareness and safety planning.
 </p>
 <p class="instructions">
   Tip: Select a year at the bottom on the selection menu to analyse each year's data.
@@ -203,22 +215,66 @@
   </div>
 </div>
 
-  <h3>Shark Incidents by State</h3>
-  <p class="description">This area chart represents the number of shark incidents by state over time, helping to identify trends and patterns across Australia's coastline.</p>
-  <p class="instructions">Tip: Click on each state on the legend to analyse each state's data.</p>
-  <div id="line" style="height: 400px;"></div>
+    <h3>Shark Incidents by State</h3>
+  <p class="description">
+    This area chart represents the number of shark incidents by<br>
+    state over time, helping to identify trends and patterns across Australia's<br>
+    coastline.
+  </p>
+  <p class="instructions">Tip: Click items in the legend to isolate a state. Click again to show all.<br>
+    Hover over the lines to see the exact values.</p>
+
+  <div class="container-section">
+    <div id="line" style="height: 400px;"></div>
+    <div class="container-comments">
+      <h4>Insights</h4>
+      <ul>
+        <li><strong>New South Wales</strong> typically shows the highest incident counts among states.</li>
+        <li><strong>Northern Territory</strong> and <strong>Tasmania</strong> generally record the fewest incidents.</li>
+        <li>States with the <strong>most people in the water </strong>see more incidents. <strong>NSW and WA</strong>
+        have long stretches of easily accessiable surf beaches near major cities, such as Sydney and Perth. Due to year-round
+        surfing and heavy tourism, shark-human contact opportunities are simply higher.</li>
+      </ul>
+    </div>
+  </div>
 
   <div class="section-banner">
     <h2>Beaches in Australia</h2>
   </div>
 
   <h3>Beach Slopes per Coastal Region in Australia</h3>
-  <p class="description">This bar chart illustrates the slopes of beaches in different coastal regions. Steeper beaches may influence the frequency or nature of shark encounters.</p>
-  <p class="instructions">Tip: Hover over the bars to see the details and pick a state at the filter section.</p>
-  <div id="bar" style="height: 400px;"></div>
+<p class="description">This bar chart illustrates the slopes of beaches in different <br>
+  coastal regions. Steeper beaches may influence the frequency or nature <br>
+  of shark encounters.</p>
+<p class="instructions">Tip: Hover over the bars to see the details and pick a state at the filter section.</p>
+
+<div class="container-section">
+  <div id="bar" style="height: 750px;"></div>
+
+  <div class="container-comments">
+    <h4>Insights</h4>
+    <ul>
+      <li><strong>Western Australia</strong> tends to have steep beaches because of the strong Indian Ocean wave that erode the coast.</li>
+      <li><strong>Queensland and New South Whales</strong> have moderate slopes due to steady wave action balanced by high sediment supply from rivers.</li>
+      <li><strong>Tasmania and South Australia</strong> have gentle beaches because of calmer waters and fine sediments that create low-gradient shores.</li>
+      <li><strong>Coarser sand</strong> forms steeper beaches, while <strong>finer sand</strong> leads to flatter, more gradual ones.</li>
+    </ul>
+  </div>
+</div>
 
   <h3>Median Significant Wave Height vs Average Beach Slope</h3>
+  <p class="description">fkje ekjf e</p>
+  <p class="instructions">Bursh</p>
   <div id="scatter" style="height: 400px;"></div>
+
+  <h3>Shark Incident Trends Along The Years</h3>
+  <p class="description">fkje ekjf e</p>
+  <p class="instructions">Bursh</p>
+  <div id="area" style="height: 400px;"></div>
+
+  <div class="section-banner">
+    <h2>How likely are you to get bit?</h2>
+  </div>
 
   <script>
     vegaEmbed("#map", "map.json").then(function(result) {
@@ -235,6 +291,10 @@
 
     vegaEmbed("#scatter", "scatter.json").then(function(result) {
       console.log("Scatter plot embedded successfully!");
+    }).catch(console.error);
+
+    vegaEmbed("#area", "area.json").then(function(result) {
+      console.log("Area plot embedded successfully!");
     }).catch(console.error);
   </script>
 </body>
