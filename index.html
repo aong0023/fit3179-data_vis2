@@ -300,7 +300,7 @@
   <h3>Beach Slope and Incident Frequency</h3>
   <p class="description">fkje ekjf e</p>
   <p class="instructions">Bursh</p>
-  <div id="stacked_bar" style="height: 400px;"></div>
+  <div id="bubble" style="height: 400px;"></div>
 
   <script>
     vegaEmbed("#map", "map.json").then(function(result) {
@@ -323,7 +323,7 @@
       console.log("Area plot embedded successfully!");
     }).catch(console.error);
 
-    vegaEmbed("#bubbler", "bubble.json").then(function(result) {
+    vegaEmbed("#bubble", "bubble.json").then(function(result) {
       console.log("Bubble chart embedded successfully!");
     }).catch(console.error);
   </script>

@@ -30,13 +30,15 @@
       "field": "mean_slope",
       "type": "quantitative",
       "title": "Average Beach Slope (°)",
-      "axis": {"format": ".3f"}
+      "axis": {"format": ".3f"},
+      "scale":{"domain":[0,0.09]}
     },
     "y": {
       "field": "mean_wave",
       "type": "quantitative",
       "title": "Median Wave Height (m)",
-      "axis": {"format": ".3f"}
+      "axis": {"format": ".3f"},
+      "scale": {"domain": [0, 2.0]}   
     },
     "size": {
       "field": "incident_count",
