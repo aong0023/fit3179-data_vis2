@@ -2,6 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 650,
   "height": 420,
+  "background": "#fff8dc",
   "data": {
     "url": "https://raw.githubusercontent.com/aong0023/fit3179-data_vis2/refs/heads/main/Australia_slopes_by_beach.csv"
   },
@@ -12,12 +13,8 @@
       "calculate": "datum.beach_slope_average_num <= 0.03 ? 'Gentle' : datum.beach_slope_average_num <= 0.06 ? 'Moderate' : 'Steep'",
       "as": "SlopeCategory"
     },
-    {
-      "filter": "datum.hsig_median_num >= waveMin && datum.hsig_median_num <= waveMax"
-    },
-    {
-      "filter": "regionSelection == 'All' || datum.coastal_region == regionSelection"
-    }
+    { "filter": "datum.hsig_median_num >= waveMin && datum.hsig_median_num <= waveMax" },
+    { "filter": "regionSelection == 'All' || datum.coastal_region == regionSelection" }
   ],
   "params": [
     {
@@ -85,12 +82,13 @@
           "type": "quantitative",
           "title": "Average Beach Slope (°)",
           "scale": { "domain": [0, 0.20] },
-          "axis": { "format": ".02f", "tickCount": 5 }
+          "axis": { "format": ".3f", "tickCount": 5 }
         },
         "y": {
           "field": "hsig_median_num",
           "type": "quantitative",
-          "title": "Median Significant Wave Height (m)"
+          "title": "Median Significant Wave Height (m)",
+          "axis": { "format": ".3f" }
         },
         "color": {
           "field": "SlopeCategory",
@@ -98,7 +96,7 @@
           "title": "Slope Type",
           "scale": {
             "domain": ["Gentle", "Moderate", "Steep"],
-            "range": ["#56B4E9", "#F0E442", "#D55E00"]
+            "range": ["#56B4E9", "#F4C300", "#D55E00"]
           },
           "legend": {
             "titleFontSize": 16,
@@ -112,18 +110,15 @@
         },
         "tooltip": [
           { "field": "SlopeCategory", "title": "Slope Type" },
-          { "field": "beach_slope_average_num", "title": "Slope (°)" },
-          { "field": "hsig_median_num", "title": "Wave Height (m)" },
+          { "field": "beach_slope_average_num", "title": "Slope (°)", "format": ".3f" },
+          { "field": "hsig_median_num", "title": "Wave Height (m)", "format": ".3f" },
           { "field": "coastal_region", "title": "Region" }
         ]
       }
     },
     {
       "transform": [
-        {
-          "regression": "hsig_median_num",
-          "on": "beach_slope_average_num"
-        }
+        { "regression": "hsig_median_num", "on": "beach_slope_average_num" }
       ],
       "mark": { "type": "line", "stroke": "black", "strokeWidth": 1.5 },
       "encoding": {
@@ -134,6 +129,6 @@
   ],
   "config": {
     "axis": { "labelFontSize": 12, "titleFontSize": 13 },
-    "background": "#ffffff"
+    "background": "#fff8dc"
   }
 }

@@ -1,63 +1,77 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 500,
-  "height": 400,
+  "background": "#fff8dc",
   "data": {
-    "url": "https://raw.githubusercontent.com/aong0023/fit3179-data_vis2/refs/heads/main/Australia%20Shark%20Incidents%20(clean).csv"
+    "url": "https://raw.githubusercontent.com/aong0023/fit3179-data_vis2/refs/heads/main/Australia%20Shark%20Incidents%20(clean).csv",
+    "format": {"type": "csv"}
   },
   "transform": [
-    { "calculate": "toString(floor(toNumber(datum['Incident.year'])))", "as": "YearNum" },
-    { "calculate": "trim(datum['State'])", "as": "State" },
+    { "calculate": "toNumber(datum['Incident.year'])", "as": "YearNum" },
+    { "calculate": "toNumber(datum['Incident.month'])", "as": "MonthNum" },
     {
-      "aggregate": [
-        { "op": "count", "as": "Incidents" }
-      ],
-      "groupby": ["YearNum", "State"]
+      "calculate": "datetime(datum['YearNum'], datum['MonthNum'] - 1, 1)",
+      "as": "IncidentDate"
     }
   ],
-  "layer": [
+  "vconcat": [
     {
-      "params": [
-        {
-          "name": "highlight",
-          "select": { "type": "point", "fields": ["State"] },
-          "bind": "legend"
-        }
-      ],
-      "mark": "area",
+      "width": 700,
+      "height": 250,
+      "title": "Monthly Shark Incidents (zoomed by year selection below)",
+      "mark": {
+        "type": "area",
+        "interpolate": "linear",      
+        "color": "#0077b6",
+        "opacity": 0.7
+      },
       "encoding": {
-        "x": { "field": "YearNum", "type": "ordinal", "title": "Year" },
-        "y": { "field": "Incidents", "type": "quantitative", "title": "Number of Incidents", "stack": "zero" },
-        "color": {
-          "field": "State",
-          "type": "nominal",
-          "title": "State",
-          "legend": { "titleFontSize": 16, "labelFontSize": 14, "symbolSize": 150 }
+        "x": {
+          "field": "IncidentDate",
+          "type": "temporal",
+          "title": "Date",
+          "scale": {"domain": {"param": "yearBrush"}},
+          "axis": {"title": ""}
         },
-        "opacity": {
-          "condition": { "param": "highlight", "value": 1 },
-          "value": 0.2
+        "y": {
+          "aggregate": "count",
+          "type": "quantitative",
+          "title": "Incident Count"
         },
         "tooltip": [
-          { "field": "YearNum", "type": "ordinal", "title": "Year" },
-          { "field": "State", "type": "nominal", "title": "State" },
-          { "field": "Incidents", "type": "quantitative", "title": "Number of Incidents" }
+          {"field": "IncidentDate", "type": "temporal", "title": "Date"},
+          {"aggregate": "count", "title": "Incidents"}
         ]
       }
     },
     {
-      "transform": [
-        { "filter": "datum.State==='NSW'" },
-        { "window": [{ "op": "max", "field": "Incidents", "as": "MaxIncidents" }], "frame": [null, null] },
-        { "filter": "datum.Incidents === datum.MaxIncidents" }
-      ],
+      "width": 700,
+      "height": 80,
+      "title": "Yearly Overview (brush to zoom above)",
       "mark": {
-        "type": "text",
-        "align": "left",
-        "dx": 10,
-        "dy": -10,
-        "color": "red",
-        "fontSize": 14
+        "type": "area",
+        "interpolate": "linear",     
+        "color": "#90e0ef",
+        "opacity": 0.8
+      },
+      "params": [
+        {"name": "yearBrush", "select": {"type": "interval", "encodings": ["x"]}}
+      ],
+      "encoding": {
+        "x": {
+          "field": "IncidentDate",
+          "type": "temporal",
+          "title": "Date"
+        },
+        "y": {
+          "aggregate": "count",
+          "type": "quantitative",
+          "axis": {"tickCount": 3, "grid": false},
+          "title": "Incident Count"
+        },
+        "tooltip": [
+          {"field": "IncidentDate", "type": "temporal", "title": "Date"},
+          {"aggregate": "count", "title": "Incidents"}
+        ]
       }
     }
   ]

@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 600,
+  "width": 700,
   "height": 400,
   "background": "#fff8dc",
   "data": {
@@ -35,38 +35,22 @@
           "field": "YearNum",
           "type": "ordinal",
           "title": "Year",
-          "axis": { "labelAngle": 45, "labelFontSize": 12 }
+          "axis": { "labelAngle": 45, "labelFontSize": 16, "titleFontSize": 16 }
         },
         "y": {
           "field": "Incidents",
           "type": "quantitative",
-          "title": "Number of Incidents"
+          "title": "Number of Incidents",
+          "axis": { "labelFontSize": 16, "titleFontSize": 16 }
         },
         "color": {
           "field": "State",
           "type": "nominal",
           "title": "State",
-          "scale": {
-            "range": [
-              "#999999",
-              "#56B4E9",
-              "#009E73",
-              "#F0E442",
-              "#0072B2",
-              "#D55E00",
-              "#CC79A7"
-            ]
-          },
-          "legend": {
-            "titleFontSize": 16,
-            "labelFontSize": 14,
-            "symbolSize": 150
-          }
+          "scale": { "scheme": "tableau10" },
+          "legend": { "titleFontSize": 18, "labelFontSize": 16, "symbolSize": 200 }
         },
-        "opacity": {
-          "condition": { "param": "highlight", "value": 1 },
-          "value": 0.3
-        },
+        "opacity": { "condition": { "param": "highlight", "value": 1 }, "value": 0.3 },
         "tooltip": [
           { "field": "YearNum", "type": "ordinal", "title": "Year" },
           { "field": "State", "type": "nominal", "title": "State" },
@@ -74,45 +58,66 @@
         ]
       }
     },
+
     {
+      "data": {
+        "values": [
+          {
+            "State": "NSW",
+            "x": "2020",
+            "y": 20,
+            "textLines": [
+              "NSW consistently records the highest",
+              "number of shark incidents, linked to",
+              "dense coastal population and tourism."
+            ]
+          }
+        ]
+      },
       "mark": {
         "type": "text",
-        "color": "#999999",
-        "fontSize": 12,
+        "fontSize": 14,
         "fontStyle": "italic",
-        "align": "left"
+        "align": "left",
+        "lineHeight": 14
       },
       "encoding": {
-        "x": { "datum": "2020" },
-        "y": { "datum": 20 },
-        "text": {
-          "value": [
-            "NSW consistently records the highest",
-            "number of shark incidents, linked to",
-            "dense coastal population and tourism."
-          ]
-        }
+        "x": { "field": "x", "type": "ordinal" },
+        "y": { "field": "y", "type": "quantitative" },
+        "text": { "field": "textLines" },
+        "color": { "field": "State", "type": "nominal", "scale": { "scheme": "tableau10" } }
       }
     },
+
     {
+      "data": {
+        "values": [
+          {
+            "State": "NT",
+            "x": "2017",
+            "y": 4,
+            "textLines": [
+              "NT reports the fewest incidents,",
+              "reflecting smaller population density",
+              "and limited beach activity."
+            ]
+          }
+        ]
+      },
       "mark": {
         "type": "text",
-        "color": "#56B4E9",
-        "fontSize": 12,
+        "fontSize": 14,
         "fontStyle": "italic",
-        "align": "left"
+        "align": "left",
+        "lineHeight": 14
       },
       "encoding": {
-        "x": { "datum": "2017" },
-        "y": { "datum": 4 },
-        "text": {
-          "value": [
-            "NT reports the fewest incidents,",
-            "reflecting smaller population density",
-            "and limited beach activity."
-          ]
-        }
+        "x": { "field": "x", "type": "ordinal" },
+        "y": { "field": "y", "type": "quantitative" },
+        "text": { "field": "textLines" },
+        "color": { "field": "State", "type": "nominal", "scale": { "scheme": "tableau10" } }
       }
     }
-  ]
+  ],
+  "config": { "background": "#fff8dc" }
 }

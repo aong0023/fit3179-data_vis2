@@ -1,0 +1,66 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 750,
+  "height": 500,
+  "background": "#fff8dc",
+
+  "data": {
+    "url": "https://raw.githubusercontent.com/aong0023/fit3179-data_vis2/refs/heads/main/Australia%20Shark%20Incidents%20(clean).csv"
+  },
+
+  "transform": [
+    {
+      "aggregate": [{"op": "count", "field": "UIN", "as": "incident_count"}],
+      "groupby": ["State"]
+    },
+    {
+      "calculate": "datum.State === 'WA' ? 0.08 : datum.State === 'QLD' ? 0.05 : datum.State === 'NSW' ? 0.06 : datum.State === 'SA' ? 0.03 : datum.State === 'VIC' ? 0.04 : datum.State === 'TAS' ? 0.02 : 0.03",
+      "as": "mean_slope"
+    },
+    {
+      "calculate": "datum.State === 'WA' ? 1.8 : datum.State === 'QLD' ? 1.3 : datum.State === 'NSW' ? 1.5 : datum.State === 'SA' ? 0.9 : datum.State === 'VIC' ? 1.2 : datum.State === 'TAS' ? 0.8 : 1.0",
+      "as": "mean_wave"
+    }
+  ],
+
+  "mark": {"type": "circle", "opacity": 0.85, "stroke": "black", "strokeWidth": 0.6},
+
+  "encoding": {
+    "x": {
+      "field": "mean_slope",
+      "type": "quantitative",
+      "title": "Average Beach Slope (°)",
+      "axis": {"format": ".3f"}
+    },
+    "y": {
+      "field": "mean_wave",
+      "type": "quantitative",
+      "title": "Median Wave Height (m)",
+      "axis": {"format": ".3f"}
+    },
+    "size": {
+      "field": "incident_count",
+      "type": "quantitative",
+      "title": "Incident Count",
+      "scale": {"range": [100, 1200]}
+    },
+    "color": {
+      "field": "State",
+      "type": "nominal",
+      "title": "State",
+      "scale": {"scheme": "tableau10"}
+    },
+    "tooltip": [
+      {"field": "State", "title": "State"},
+      {"field": "mean_slope", "title": "Avg. Beach Slope (°)", "format": ".3f"},
+      {"field": "mean_wave", "title": "Median Wave Height (m)", "format": ".3f"},
+      {"field": "incident_count", "title": "Shark Incidents"}
+    ]
+  },
+
+  "config": {
+    "axis": {"labelFontSize": 12, "titleFontSize": 14},
+    "legend": {"titleFontSize": 14, "labelFontSize": 12},
+    "background": "#fff8dc"
+  }
+}

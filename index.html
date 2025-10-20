@@ -214,6 +214,10 @@
     </ul>
   </div>
 </div>
+<h3>Shark Incident Trends Along The Years</h3>
+  <p class="description">fkje ekjf e</p>
+  <p class="instructions">Bursh</p>
+  <div id="area" style="height: 400px;"></div>
 
     <h3>Shark Incidents by State</h3>
   <p class="description">
@@ -225,7 +229,7 @@
     Hover over the lines to see the exact values.</p>
 
   <div class="container-section">
-    <div id="line" style="height: 400px;"></div>
+    <div id="line" style="height: 500px;"></div>
     <div class="container-comments">
       <h4>Insights</h4>
       <ul>
@@ -237,7 +241,7 @@
       </ul>
     </div>
   </div>
-
+  
   <div class="section-banner">
     <h2>Beaches in Australia</h2>
   </div>
@@ -249,7 +253,6 @@
 <p class="instructions">Tip: Hover over the bars to see the details and pick a state at the filter section.</p>
 
 <div class="container-section">
-  <div id="bar" style="height: 750px;"></div>
 
   <div class="container-comments">
     <h4>Insights</h4>
@@ -260,21 +263,44 @@
       <li><strong>Coarser sand</strong> forms steeper beaches, while <strong>finer sand</strong> leads to flatter, more gradual ones.</li>
     </ul>
   </div>
+  <div id="bar" style="height: 750px;"></div>
 </div>
 
   <h3>Median Significant Wave Height vs Average Beach Slope</h3>
-  <p class="description">fkje ekjf e</p>
-  <p class="instructions">Bursh</p>
-  <div id="scatter" style="height: 400px;"></div>
 
-  <h3>Shark Incident Trends Along The Years</h3>
-  <p class="description">fkje ekjf e</p>
-  <p class="instructions">Bursh</p>
-  <div id="area" style="height: 400px;"></div>
+<p class="description">
+  This scatter plot visualizes the relationship between the average beach slope <br>
+  and the median significant wave height across Australian coastal regions. 
+</p>
+
+<p class="instructions">
+  Tip: Use the sliders below to adjust the minimum and <br>
+  maximum median wave height values to filter the data range. <br> <br>
+  Setting a higher minimum highlights beaches that consistently experience <br>
+  strong waves, while lowering the maximum focuses on gentler surf zones.
+</p>
+<div class="container-section">
+
+  <div class="container-comments">
+    <h4>Insights</h4>
+    <ul>
+      <li>Beaches with <strong>steeper slopes</strong> tend to have <strong>higher median wave heights</strong>, showing the link between coastal gradient and wave energy.</li>
+      <li><strong>Gentle beaches</strong> (lower slopes) often appear in regions with <strong>smaller waves</strong> and calmer water conditions.</li>
+      <li>The <strong>regression line</strong> suggests a positive trend: as beach slope increases, wave height generally rises too.</li>
+      <li>This relationship helps explain why <strong>Western Australia</strong> and other exposed coasts face stronger surf, while southern regions experience milder wave conditions.</li>
+    </ul>
+  </div>
+  <div id="scatter" style="height: 600px;"></div>
+</div>
 
   <div class="section-banner">
-    <h2>How likely are you to get bit?</h2>
+    <h2>Beach Attributes and Incident Count</h2>
   </div>
+
+  <h3>Beach Slope and Incident Frequency</h3>
+  <p class="description">fkje ekjf e</p>
+  <p class="instructions">Bursh</p>
+  <div id="stacked_bar" style="height: 400px;"></div>
 
   <script>
     vegaEmbed("#map", "map.json").then(function(result) {
@@ -295,6 +321,10 @@
 
     vegaEmbed("#area", "area.json").then(function(result) {
       console.log("Area plot embedded successfully!");
+    }).catch(console.error);
+
+    vegaEmbed("#bubbler", "bubble.json").then(function(result) {
+      console.log("Bubble chart embedded successfully!");
     }).catch(console.error);
   </script>
 </body>
