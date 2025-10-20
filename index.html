@@ -184,7 +184,6 @@
   <div class="info-box">📐 Gentle slopes mean calm waters, steep slopes create stronger waves</div>
 </div>
 
-
   <div class="section-banner">
     <h2>Shark Incidents</h2>
   </div>
@@ -214,10 +213,31 @@
     </ul>
   </div>
 </div>
+
 <h3>Shark Incident Trends Along The Years</h3>
-  <p class="description">fkje ekjf e</p>
-  <p class="instructions">Bursh</p>
-  <div id="area" style="height: 400px;"></div>
+<p class="description">
+  This interactive area chart shows how shark incidents have changed <br>
+  over the years in Australia. It highlights monthly variations and <br>
+  allows zooming into specific time periods for detailed insights.
+</p>
+<p class="instructions">
+  Tip: Brush over the bottom chart to zoom into a specific range of years.
+</p>
+
+<div class="container-section">
+  <div id="area" style="height: 500px;"></div>
+
+  <div class="container-comments">
+    <h4>Insights</h4>
+    <ul>
+      <li><strong>Increasing trend:</strong> There’s a general rise in recorded incidents over recent decades, reflecting higher beach activity and better reporting.</li>
+      <li><strong>Seasonal patterns:</strong> Peaks are observed during warmer months (December–March) when ocean recreation is highest.</li>
+      <li><strong>Stability post-2020:</strong> The trend stabilizes, suggesting improved safety measures and public awareness.</li>
+      <li><strong>Possible outliers:</strong> Sudden spikes could correspond to environmental changes or unusual shark migrations.</li>
+      <li><strong>Practical insight:</strong> Yearly zoom-ins help identify which seasons or years require enhanced beach surveillance.</li>
+    </ul>
+  </div>
+</div>
 
     <h3>Shark Incidents by State</h3>
   <p class="description">
@@ -327,5 +347,30 @@
       console.log("Bubble chart embedded successfully!");
     }).catch(console.error);
   </script>
+
+    <footer style="
+    background-color: #006494;
+    color: white;
+    text-align: center;
+    padding: 25px 15px;
+    font-family: 'Arial', 'Helvetica', sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    margin-top: 50px;
+  ">
+    <p><strong>Author:</strong> Andrea Ong <strong></p>
+    <p>Student ID:</strong> 34281738</p>
+    <p><strong>Date:</strong> 21 October 2025</p>
+    <p><strong>Title:</strong> Data Visualisation II</p>
+    <p><strong>Sources:</strong> 
+      <a href="https://zenodo.org/records/16355384" 
+         style="color: #bbdbf7; text-decoration: underline;">Australia Shark Incidents Dataset</a>, 
+      <a href="https://zenodo.org/records/7272538" 
+         style="color: #bbdbf7; text-decoration: underline;">Australia Beach Slopes Dataset</a>
+    </p>
+  </footer>
+
 </body>
 </html>

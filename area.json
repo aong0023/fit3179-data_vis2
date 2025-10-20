@@ -21,7 +21,7 @@
       "mark": {
         "type": "area",
         "interpolate": "linear",      
-        "color": "#0077b6",
+        "color": "#339af0",    
         "opacity": 0.7
       },
       "encoding": {
@@ -50,7 +50,7 @@
       "mark": {
         "type": "area",
         "interpolate": "linear",     
-        "color": "#90e0ef",
+        "color": "#1d4e89", 
         "opacity": 0.8
       },
       "params": [

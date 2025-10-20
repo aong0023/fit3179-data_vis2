@@ -96,7 +96,7 @@
           "title": "Slope Type",
           "scale": {
             "domain": ["Gentle", "Moderate", "Steep"],
-            "range": ["#56B4E9", "#F4C300", "#D55E00"]
+            "range": ["#1dadc0", "#F4C300", "#D55E00"]
           },
           "legend": {
             "titleFontSize": 16,
