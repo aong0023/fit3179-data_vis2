@@ -202,7 +202,8 @@
   for better awareness and safety planning.
 </p>
 <p class="instructions">
-  Tip: Select a year at the bottom on the selection menu to analyse each year's data.
+  Tip: Select a year at the bottom on the selection menu to analyse each year's data.<br>
+  Hover over the points to analyse the incident details.
 </p>
 
 <div class="container-section">
@@ -214,7 +215,6 @@
       <li><strong>High incident clusters</strong> coincide with popular swimming and surfing beaches, especially along NSW and southern QLD.</li>
       <li><strong>Western and eastern coasts</strong> dominate the dataset, showing similar seasonal peaks in incident rates.</li>
       <li><strong>Human activity levels</strong> are the strongest predictor of incident frequency.</li>
-      <li><strong>Data suggests</strong> that densely populated coasts, such as Sydney and Perth regions, experience more encounters.</li>
       <li><strong>Fewer incidents</strong> in Northern Territory and South Australia reflect lower recreational beach use.</li>
       <li><strong>Useful for safety planning</strong>: Helps policymakers, lifeguards, and local councils identify high-risk zones.</li>
     </ul>
@@ -239,7 +239,6 @@
     <ul>
       <li><strong>Increasing trend:</strong> There’s a general rise in recorded incidents over recent decades, reflecting higher beach activity and better reporting.</li>
       <li><strong>Seasonal patterns:</strong> Peaks are observed during warmer months (December–March) when ocean recreation is highest.</li>
-      <li><strong>Stability post-2020:</strong> The trend stabilizes, suggesting improved safety measures and public awareness.</li>
       <li><strong>Possible outliers:</strong> Sudden spikes could correspond to environmental changes or unusual shark migrations.</li>
     </ul>
   </div>
@@ -292,10 +291,11 @@
   <div id="bar" style="height: 700px;"></div>
 </div>
 
-<h3>Median Significant Wave Height vs Average Beach Slope</h3>
+<h3>Beach Slope vs Median Wave Height by Coastal Region in Australia</h3>
 <p class="description">
   This scatter plot visualizes the relationship between the average beach slope <br>
-  and the median significant wave height across Australian coastal regions. 
+  and the median significant wave height across Australian coastal regions.<br>
+  The regression line is drawn based on the average beach slope and median wave height.
 </p>
 <p class="instructions">
   Tip: Use the sliders below to adjust the minimum and <br>
@@ -317,7 +317,7 @@
 </div>
 
   <div class="section-banner">
-    <h2>Beach Attributes and Incident Count</h2>
+    <h2>Beach Attributes and Shark Incidents</h2>
   </div>
 
   <h3>Incidents by Beach Slope and Wave Height</h3>
@@ -333,13 +333,11 @@
     <ul>
       <li><strong>Western Australia</strong> stands out with the steepest beaches and highest number of shark incidents.</li>
       <li><strong>New South Wales</strong> shows a high incident count with moderate slopes and strong waves.</li>
-      <li><strong>Tasmania</strong> and <strong>South Australia</strong> have gentler slopes and fewer incidents.</li>
-      <li>The <strong>mean</strong> for beach slope is <strong>0.08°</strong> and wave height is <strong>1.8m</strong>.</li>
+      <li>As observed from the scatter plot, the <strong>steep slopes have the most amount of incidents</strong>. Hence, with NSW having a relatively steep slope, it makes sense that it has the highest incident count.</li>
       <li>Overall, it can be observed that <strong>steeper, higher-energy coastlines </strong>tend to experience more encounters with sharks.</li>
     </ul>
   </div>
 </div>
-
 
   <script>
     vegaEmbed("#map", "map.json").then(function(result) {
@@ -382,7 +380,7 @@
     <p><strong>Author:</strong> Andrea Ong <strong></p>
     <p>Student ID:</strong> 34281738</p>
     <p><strong>Date:</strong> 21 October 2025</p>
-    <p><strong>Title:</strong> Data Visualisation II</p>
+    <p><strong>Title:</strong> Data Visualisation II: Shark Incidents in Australian Beaches</p>
     <p><strong>Sources:</strong> 
       <a href="https://zenodo.org/records/16355384" 
          style="color: #bbdbf7; text-decoration: underline;">Australia Shark Incidents Dataset</a>, 

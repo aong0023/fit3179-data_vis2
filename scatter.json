@@ -117,56 +117,65 @@
       }
     },
     {
-  "transform": [
-    {
-      "regression": "hsig_median_num",
-      "on": "beach_slope_average_num",
-      "method": "linear"
+      "layer": [
+        {
+          "transform": [{ "filter": "regionSelection == 'All'" }],
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "bottom",
+            "x": 300,
+            "y": 90,
+            "fontSize": 14,
+            "fontStyle": "italic",
+            "color": "#D55E00",
+            "text": "Steep slopes have"
+          }
+        },
+        {
+          "transform": [{ "filter": "regionSelection == 'All'" }],
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "bottom",
+            "x": 300,
+            "y": 105,
+            "fontSize": 14,
+            "fontStyle": "italic",
+            "color": "#D55E00",
+            "text": "the most incidents"
+          }
+        },
+        {
+          "transform": [{ "filter": "regionSelection == 'All'" }],
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "bottom",
+            "x": 10,
+            "y": 40,
+            "fontSize": 14,
+            "fontStyle": "italic",
+            "color": "#1dadc0",
+            "text": "Gentle slopes have"
+          }
+        },
+        {
+          "transform": [{ "filter": "regionSelection == 'All'" }],
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "bottom",
+            "x": 10,
+            "y": 55,
+            "fontSize": 14,
+            "fontStyle": "italic",
+            "color": "#1dadc0",
+            "text": "the least incidents"
+          }
+        }
+      ]
     }
-  ],
-  "mark": {
-    "type": "line",
-    "color": "black",
-    "strokeWidth": 2,
-    "opacity": 0.9
-  },
-  "encoding": {
-    "x": { "field": "beach_slope_average_num", "type": "quantitative" },
-    "y": { "field": "hsig_median_num", "type": "quantitative" }
-  }
-},
-    {
-  "layer": [
-    {
-      "transform": [{ "filter": "regionSelection == 'All'" }],
-      "mark": {
-        "type": "text",
-        "align": "left",
-        "baseline": "bottom",
-        "x": 220,
-        "y": 100,
-        "fontSize": 14,
-        "fontStyle": "italic",
-        "color": "#D55E00",
-        "text": "Steep slopes have the most incidents"
-      }
-    },
-    {
-      "transform": [{ "filter": "regionSelection == 'All'" }],
-      "mark": {
-        "type": "text",
-        "align": "left",
-        "baseline": "bottom",
-        "x": 10,
-        "y": 40,
-        "fontSize": 14,
-        "fontStyle": "italic",
-        "color": "#1dadc0",
-        "text": "Gentle slopes have the least incidents"
-      }
-    }
-  ]
-}
   ],
   "config": {
     "axis": { "labelFontSize": 12, "titleFontSize": 13 },

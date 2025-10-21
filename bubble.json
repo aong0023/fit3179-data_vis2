@@ -65,10 +65,10 @@
       "data": {
         "values": [
           {"State": "WA", "mean_slope": 0.075, "mean_wave": 2.0, "label": "Steepest beach slope"},
-          {"State": "WA", "mean_slope": 0.074, "mean_wave": 1.9, "label": "& highest wave height (WA)"},
-          {"State": "TAS", "mean_slope": 0.012, "mean_wave": 0.94, "label": "Gentlest beach slope"},
-          {"State": "TAS", "mean_slope": 0.013, "mean_wave": 0.85, "label": "& lowest wave height (TAS)"},
-          {"State": "NSW", "mean_slope": 0.06, "mean_wave": 1.6, "label": "Highest Incident Count (NSW)"}
+          {"State": "WA", "mean_slope": 0.075, "mean_wave": 1.9, "label": "& highest wave height"},
+          {"State": "TAS", "mean_slope": 0.013, "mean_wave": 0.94, "label": "Gentlest beach slope"},
+          {"State": "TAS", "mean_slope": 0.013, "mean_wave": 0.85, "label": "& lowest wave height"},
+          {"State": "NSW", "mean_slope": 0.06, "mean_wave": 1.6, "label": "Highest Incident Count"}
         ]
       },
       "mark": {
@@ -76,7 +76,7 @@
         "dx": 10,
         "dy": -10,
         "fontSize": 13,
-        "fontWeight": "bold"
+        "fontStyle":"italic"
       },
       "encoding": {
         "x": {"field": "mean_slope", "type": "quantitative"},
