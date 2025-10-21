@@ -19,7 +19,7 @@
   ],
   "transform": [
     {
-      "calculate": "datum.coastal_region === 'Central West WA' || datum.coastal_region === 'Kimberley' || datum.coastal_region === 'Southwest WA' || datum.coastal_region === 'Pilbara' || datum.coastal_region === 'Southern WA' ? 'WA' : datum.coastal_region === 'Eastern Cape York Peninsula' || datum.coastal_region === 'Southern Gulf of Carpentaria' || datum.coastal_region === 'Central Queensland' || datum.coastal_region === 'Western Cape York Peninsula' ? 'QLD' : datum.coastal_region === 'East Arnhem Land' || datum.coastal_region === 'North Arnhem Land' || datum.coastal_region === 'Western NT' ? 'NT' : datum.coastal_region === 'South Australian Gulfs' || datum.coastal_region === 'Western Eyre Peninsula' || datum.coastal_region === 'Southern SA' || datum.coastal_region === 'Nullarbor' ? 'SA' : datum.coastal_region === 'East Tasmania' || datum.coastal_region === 'North Tasmania' || datum.coastal_region === 'West Tasmania' ? 'TAS' : datum.coastal_region === 'Southern NSW' || datum.coastal_region === 'Central East' ? 'NSW' : datum.coastal_region === 'Gippsland' || datum.coastal_region === 'Central and Western VIC' ? 'VIC' : 'Other'",
+      "calculate": "datum.coastal_region === 'Central West WA' || datum.coastal_region === 'Kimberley' || datum.coastal_region === 'Southwest WA' || datum.coastal_region === 'Pilbara' || datum.coastal_region === 'Southern WA' ? 'WA' : datum.coastal_region === 'Eastern Cape York Peninsula' || datum.coastal_region === 'Southern Gulf of Carpentaria' || datum.coastal_region === 'Central Queensland' || datum.coastal_region === 'Western Cape York Peninsula' ? 'QLD' : datum.coastal_region === 'East Arnhem Land' || datum.coastal_region === 'Western NT' ? 'NT' : datum.coastal_region === 'South Australian Gulfs' || datum.coastal_region === 'Western Eyre Peninsula' || datum.coastal_region === 'Southern SA' || datum.coastal_region === 'Nullarbor' ? 'SA' : datum.coastal_region === 'East Tasmania' || datum.coastal_region === 'North Tasmania' || datum.coastal_region === 'West Tasmania' ? 'TAS' : datum.coastal_region === 'Southern NSW' || datum.coastal_region === 'Central East' ? 'NSW' : datum.coastal_region === 'Gippsland' || datum.coastal_region === 'Central and Western VIC' ? 'VIC' : 'Other'",
       "as": "state"
     },
     {
@@ -70,8 +70,8 @@
           "aggregate": "mean",
           "field": "beach_slope_average",
           "type": "quantitative"
-        }
-      }
+              }      
+            }
     },
     {
       "mark": {"type": "circle", "size": 120, "filled": true}
