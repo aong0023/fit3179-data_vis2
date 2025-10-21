@@ -299,13 +299,12 @@
   strong waves, while lowering the maximum focuses on gentler surf zones.
 </p>
 <div class="container-section">
-
   <div class="container-comments">
     <h4>Insights</h4>
     <ul>
-      <li>Beaches with <strong>steeper slopes</strong> tend to have <strong>higher median wave heights</strong>, showing the link between coastal gradient and wave energy.</li>
-      <li><strong>Gentle beaches</strong> (lower slopes) often appear in regions with <strong>smaller waves</strong> and calmer water conditions.</li>
-      <li>The <strong>regression line</strong> suggests a positive trend: as beach slope increases, wave height generally rises too.</li>
+      <li><strong>Higher incidents rates</strong> tend to occur on steep beaches, even when wave height is not especially high.</li>
+      <li><strong>Gentle slopes</strong> generally correspond to calm, low-wave beaches with fewer reported incidents.</li>
+      <li><strong>Moderate slopes</strong> mark the transition where incidents begin to rise.</li>
       <li>This relationship helps explain why <strong>Western Australia</strong> and other exposed coasts face stronger surf, while southern regions experience milder wave conditions.</li>
     </ul>
   </div>
@@ -316,10 +315,27 @@
     <h2>Beach Attributes and Incident Count</h2>
   </div>
 
-  <h3>Beach Slope and Incident Frequency</h3>
-  <p class="description">fkje ekjf e</p>
-  <p class="instructions">Bursh</p>
-  <div id="bubble" style="height: 400px;"></div>
+
+  <h3>Incidents by Beach Slope and Wave Height</h3>
+  <p class="description">This bubble chart visualises the relationship between average beach slope, <br>
+    median wave height, and then number of recorded shark incidents <br>
+    across Australian states. The chart combines oceanographic characteristics with incident <br>
+    data to explore which coastal environments are most associated with shark encounters.</p>
+  <p class="instructions">Tip: Hover over a bubble to view the state, slope, wave height, and incident count.</p>
+  <div class="container-section">
+  <div id="bubble" style="height: 500px;"></div>
+
+  <div class="container-comments">
+    <h4>Insights</h4>
+    <ul>
+      <li><strong>Western Australia</strong> stands out with the steepest beaches and the highest number of shark incidents, reflecting its energetic coastal waters and open exposure to ocean swells.</li>
+      <li><strong>New South Whales</strong> also shows a <strong>high incident count</strong>, corresponding to moderately steep beaches and strong wave conditions.</li>
+      <li><strong>Tasmania and South Australia</strong> exhibit <strong>gentler slopes</strong> and <strong>lower incident counts</strong>, aligning with calmer wave environments.</li>
+      <li>Overall, it can be observed that <strong>steeper, higher-energy coastlines </strong>tend to experience more encounters with sharks.</li>
+    </ul>
+  </div>
+</div>
+
 
   <script>
     vegaEmbed("#map", "map.json").then(function(result) {
