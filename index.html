@@ -359,6 +359,10 @@
       console.log("Area plot embedded successfully!");
     }).catch(console.error);
 
+    vegaEmbed("#boxplot", "boxplot.json").then(function(result) {
+      console.log("Boxplot chart embedded successfully!");
+    }).catch(console.error);
+
     vegaEmbed("#bubble", "bubble.json").then(function(result) {
       console.log("Bubble chart embedded successfully!");
     }).catch(console.error);
